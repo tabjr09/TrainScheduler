@@ -1,0 +1,20 @@
+
+
+body{
+    background-image: url("Underground-Traffic.jpg")
+}
+
+#title{
+    font-family: 'Oxygen', sans-serif;
+    text-align: center;
+    color:red;
+   
+}
+
+.panel-body{
+    background-color: transparent;
+}
+
+#title-text{
+    font-size: 70px;
+}
