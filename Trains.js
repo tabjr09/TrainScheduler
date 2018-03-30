@@ -25,7 +25,7 @@
 
 
     // Capture Button Click
-    $("#add-train").on("click", function(event) {
+    $(document).on("click","#add-train", function(event) {
       event.preventDefault();
       
       // Grabbed values from text-boxes
@@ -34,14 +34,14 @@
       trainTime = $("#train-time-input").val().trim();
       frequency = $("#frequency-input").val().trim();
 
-      
+      /*
 
       if (moment.unix(trainTime).format()== "hh:mm a"){
         console.log("time format is incorrect.")
       }
 
       console.log(moment.unix(trainTime).format('hh:mm a'));
-
+*/
       // Code for "Setting values in the database"
       database.ref().push({
         trainName: trainName,
@@ -61,6 +61,7 @@
     
     database.ref().on("child_added", function(childSnapshot, prevChildKey) {
 
+      console.log("child added");
     console.log(childSnapshot.val());
 
         // Store everything into a variable.
@@ -68,8 +69,6 @@
         var cdestination = childSnapshot.val().destination;
         var ctrainTime = childSnapshot.val().trainTime;
         var cfrequency = childSnapshot.val().frequency;
-
-  
 
        processTime(ctrainTime, cfrequency);
       
